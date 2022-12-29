@@ -1,0 +1,32 @@
+<h5>Farms List</h5>
+<div class="row">
+	<div class="col-md-6">
+		<!-- This is the filter: by No and by Active Date -->
+		<div class="form-group">
+			<label for="filterDowpDown">Filter By</label>
+			<select id="filterDowpDown" class="form-control" ngModel (ngModelChange)="filterArray($event)">
+				<option value="100">No</option>
+				<option value="2020">Active Date</option>
+				<option selected value="">All</option>
+			</select>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<button (click)="callErr()" class="btn btn-outline-danger btn-sm">Error Button</button>
+	</div>
+</div>
+<div class="row mt-2">
+	<ejs-grid #overviewgrid id='overviewgrid' [dataSource]='farms' rowHeight='38' [allowSelection]='true' [enableHover]='false' [allowSorting]='true'  allowPaging= 'True'>
+		<e-columns>
+				<e-column field='Id' [visible]='false' headerText='Farm ID' width='130' [isPrimaryKey]='true'></e-column>
+				<e-column field='FarmName' headerText='Farm Name'clipMode='EllipsisWithTooltip' width='240'></e-column>
+				<e-column field='FarmNo' headerText='Farm No' clipMode='EllipsisWithTooltip' width='240'></e-column>
+				<e-column field='ActiveDate' headerText='Active Date'  clipMode='EllipsisWithTooltip' width='240'></e-column>
+				<e-column field='Address' headerText='Address'  clipMode='EllipsisWithTooltip' width='240'></e-column>
+		</e-columns>
+</ejs-grid>   
+</div>
+
+<div class="row">
+	<!-- The sf grid should be here -->
+</div>
